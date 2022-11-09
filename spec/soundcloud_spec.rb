@@ -140,23 +140,23 @@ describe SoundCloud do
 
     describe "#authorize_url" do
       it "generates a authorize_url" do
-        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http://come.back.to/me&")
+        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http%3A%2F%2Fcome.back.to%2Fme&")
       end
 
       it "generates a authorize_url and include the passed display parameter" do
-        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me", :display => "popup")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http://come.back.to/me&display=popup")
+        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me", :display => "popup")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http%3A%2F%2Fcome.back.to%2Fme&display=popup")
       end
 
       it "generates a authorize_url and include the passed state parameter" do
-        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me", :state => "hell&yeah")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http://come.back.to/me&state=hell%26yeah")
+        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me", :state => "hell&yeah")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http%3A%2F%2Fcome.back.to%2Fme&state=hell%26yeah")
       end
 
       it "generates a authorize_url and include the passed scope parameter" do
-        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me", :scope => "email")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http://come.back.to/me&scope=email")
+        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me", :scope => "email")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http%3A%2F%2Fcome.back.to%2Fme&scope=email")
       end
 
       it "generates a authorize_url and include the passed scope and state parameter" do
-        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me", :scope => "email", :state => "blub")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http://come.back.to/me&state=blub&scope=email")
+        expect(subject.authorize_url(:redirect_uri => "http://come.back.to/me", :scope => "email", :state => "blub")).to eq("https://api.soundcloud.com/connect?response_type=code&client_id=client&redirect_uri=http%3A%2F%2Fcome.back.to%2Fme&state=blub&scope=email")
       end
     end
 
