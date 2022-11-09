@@ -221,7 +221,7 @@ describe SoundCloud do
 
       it "calls authorize endpoint to exchange token and store them when refresh token is passed" do
         allow(subject.class).to receive(:post)
-        expect(SoundCloud::Client).to receive(:post).with('https://api.soundcloud.com/oauth2/token', :query => {
+        expect(SoundCloud::Client).to receive(:post).with('https://api.soundcloud.com/oauth2/token', :body => {
           :grant_type    => 'refresh_token',
           :refresh_token => 'refresh',
           :client_id     => 'client',
@@ -234,7 +234,7 @@ describe SoundCloud do
 
       it "calls authorize endpoint to exchange token and store them when client credentials are passed" do
         subject
-        expect(SoundCloud::Client).to receive(:post).with('https://api.soundcloud.com/oauth2/token', :query => {
+        expect(SoundCloud::Client).to receive(:post).with('https://api.soundcloud.com/oauth2/token', :body => {
           :grant_type    => 'client_credentials',
           :client_id     => 'client',
           :client_secret => 'secret',
@@ -245,7 +245,7 @@ describe SoundCloud do
       end
 
       it "calls authorize endpoint to exchange token and store them when code and redirect_uri are passed" do
-        expect(subject.class).to receive(:post).with('https://api.soundcloud.com/oauth2/token', :query => {
+        expect(subject.class).to receive(:post).with('https://api.soundcloud.com/oauth2/token', :body => {
           :grant_type    => 'authorization_code',
           :redirect_uri  => 'http://somewhere.com/bla',
           :code          => 'pass',

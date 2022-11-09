@@ -129,7 +129,7 @@ module SoundCloud
       params.merge!(:client_id => client_id, :client_secret => client_secret)
 
       response = handle_response(false) {
-        self.class.post("https://#{api_host}#{TOKEN_PATH}", :query => params)
+        self.class.post("https://#{api_host}#{TOKEN_PATH}", :body => params)
       }
 
       @options.merge!(:access_token => response.access_token, :refresh_token => response.refresh_token)
