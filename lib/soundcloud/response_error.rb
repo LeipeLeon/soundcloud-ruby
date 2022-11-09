@@ -23,6 +23,7 @@ module SoundCloud
       423 => "Locked",
       424 => "Failed Dependency",
       426 => "Upgrade Required",
+      429 => "Too Many Requests",
       500 => "Internal Server Error",
       501 => "Not Implemented",
       502 => "Bad Gateway",
